@@ -19,7 +19,7 @@ export default function Timer({ timeLeft }: TimerProps) {
     }, [timeLeft]);
 
     return (
-        <div className="text-[12rem] leading-none font-bold tabular-nums tracking-tighter text-foreground select-none">
+        <div className="text-[10rem] sm:text-[12rem] leading-none font-bold tabular-nums tracking-tighter text-foreground select-none scale-90 origin-center transition-transform duration-300">
             {formattedTime}
         </div>
     );

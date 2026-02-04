@@ -5,7 +5,8 @@ import Timer from '@/components/Timer';
 import Controls from '@/components/Controls';
 import StatusIndicator from '@/components/StatusIndicator';
 import { Header, Footer } from '@/components/Layout';
-import { useEffect } from 'react';
+import SettingsSidebar from '@/components/SettingsSidebar';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const {
@@ -16,6 +17,8 @@ export default function Home() {
     resetTimer,
     setMode
   } = usePomodoro();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Dynamic title based on timer
   useEffect(() => {
@@ -29,7 +32,9 @@ export default function Home() {
 
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-background text-foreground overflow-hidden">
-      <Header />
+      <Header onOpenSidebar={() => setIsSidebarOpen(true)} />
+
+      <SettingsSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       <div className="flex flex-col items-center z-20">
         <StatusIndicator currentMode={mode} onModeChange={setMode} />

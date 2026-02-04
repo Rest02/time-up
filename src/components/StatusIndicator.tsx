@@ -11,6 +11,7 @@ export default function StatusIndicator({ currentMode, onModeChange }: StatusInd
         { id: 'TYPE_SHORT_BREAK', label: 'Short Break' },
         { id: 'TYPE_LONG_BREAK', label: 'Long Break' },
         { id: 'TYPE_ONE_HOUR', label: '1 Hour' },
+        { id: 'TYPE_TEST', label: 'Test 5s' },
     ];
 
     return (
@@ -22,7 +23,7 @@ export default function StatusIndicator({ currentMode, onModeChange }: StatusInd
                     className={`
             px-4 py-2 rounded-full text-sm sm:text-base font-bold transition-all duration-300
             ${currentMode === mode.id
-                            ? 'bg-primary text-white shadow-lg shadow-primary/20'
+                            ? 'glass-button !bg-primary/80 text-white shadow-lg shadow-primary/20'
                             : 'text-muted hover:text-foreground hover:bg-white/5'
                         }
           `}
